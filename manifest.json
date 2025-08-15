@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Wikipedia Deceased Detector",
+  "author": {
+    "email": "ehamiter@gmail.com"
+  },
+  "version": "1.0",
+  "description": "Colors links to pages of deceased entities on Wikipedia.",
+  "icons": {
+    "16": "wiki-deceased.png",
+    "48": "wiki-deceased.png",
+    "128": "wiki-deceased.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.wikipedia.org/*"
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://en.wikipedia.org/wiki/*",
+        "https://en.m.wikipedia.org/wiki/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
